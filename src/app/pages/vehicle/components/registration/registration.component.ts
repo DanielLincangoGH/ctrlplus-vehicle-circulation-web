@@ -1,10 +1,10 @@
+import { VehicleResponse } from './../../interfaces/vehicle.response';
+import { VehicleService } from './../../services/vehicle.service';
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Vehicle } from '../../interfaces/vehicle';
+import { tap } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-registration',
@@ -12,9 +12,13 @@ import {
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit {
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private vehicleSrv: VehicleService,
+    private snackBar: MatSnackBar
+  ) {}
 
-  registrationForm = this.fb.group({
+  registrationForm: FormGroup = this.fb.group({
     plateId: ['', Validators.required],
     color: ['', Validators.required],
     model: ['', Validators.required],
@@ -25,4 +29,16 @@ export class RegistrationComponent implements OnInit {
   });
 
   ngOnInit(): void {}
+
+  onRegister() {
+    let vehicle: Vehicle = { ...this.registrationForm.value };
+    this.vehicleSrv
+      .register(vehicle)
+      .pipe(
+        tap(({ message }: VehicleResponse) =>
+          this.snackBar.open(message.message)
+        )
+      )
+      .subscribe();
+  }
 }

@@ -1,4 +1,8 @@
-<form [formGroup]="registrationForm" class="form-container">
+<form
+  [formGroup]="registrationForm"
+  (ngSubmit)="onRegister()"
+  class="form-container"
+>
   <mat-card>
     <mat-card-header>
       <mat-card-title>Registro de vehículos</mat-card-title>
@@ -7,52 +11,22 @@
     <mat-card-content>
       <mat-form-field class="full-width">
         <mat-label>Placa</mat-label>
-        <input
-          formControlName="plateId"
-          matInput
-          type="text"
-          placeholder="Ej. PPP-001"
-        />
+        <input formControlName="plateId" matInput placeholder="Ej. PPP-001" />
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <mat-label>Color</mat-label>
-        <input
-          formControlName="color"
-          matInput
-          type="text"
-          placeholder="Ej. Plateado"
-        />
+        <input formControlName="color" matInput placeholder="Ej. Plateado" />
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <mat-label>Marca</mat-label>
-        <input
-          formControlName="brand"
-          matInput
-          type="text"
-          placeholder="Ej. Toyota"
-        />
+        <input formControlName="brand" matInput placeholder="Ej. Toyota" />
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <mat-label>Modelo</mat-label>
-        <input
-          formControlName="model"
-          matInput
-          type="text"
-          placeholder="Ej. Rav4"
-        />
-      </mat-form-field>
-
-      <mat-form-field class="full-width">full-width
-        <mat-label>Chasis</mat-label>
-        <input
-          formControlName="chassis"
-          matInput
-          type="text"
-          placeholder="Revisa en tu matrícula"
-        />
+        <input formControlName="model" matInput placeholder="Ej. Rav4" />
       </mat-form-field>
 
       <mat-form-field class="full-width">
@@ -60,7 +34,15 @@
         <input
           formControlName="engine"
           matInput
-          type="text"
+          placeholder="Revisa en tu matrícula"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Chasis</mat-label>
+        <input
+          formControlName="chassis"
+          matInput
           placeholder="Revisa en tu matrícula"
         />
       </mat-form-field>
