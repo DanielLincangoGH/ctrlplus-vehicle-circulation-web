@@ -1,0 +1,29 @@
+<mat-sidenav-container autosize>
+  <mat-sidenav #sidenav mode="side" opened="isExpanded">
+    <mat-nav-list>
+      <mat-list-item (click)="isExpanded = !isExpanded">
+        <mat-icon
+          mat-list-icon
+          class="chevron-button"
+          [ngClass]="{ rotated: isExpanded }"
+          >chevron_right
+        </mat-icon>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="['/vehicle/registration']">
+        <mat-icon mat-list-icon>local_taxi</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Vehículos</span>
+      </mat-list-item>
+
+      <mat-list-item [routerLink]="['/circulation/restriction']">
+        <mat-icon mat-list-icon>local_car_wash</mat-icon>
+        <span *ngIf="isExpanded" class="menu-item">Circulación</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

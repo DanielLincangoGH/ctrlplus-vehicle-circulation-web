@@ -1,3 +1,4 @@
+import { LayerComponent } from './shared/component/layer/layer.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -7,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { HeaderComponent } from './shared/component/header/header.component';
 @NgModule({
-  declarations: [HeaderComponent, AppComponent],
+  declarations: [AppComponent, HeaderComponent, LayerComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
