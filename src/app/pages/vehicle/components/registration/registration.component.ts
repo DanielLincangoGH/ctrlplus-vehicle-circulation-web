@@ -36,7 +36,7 @@ export class RegistrationComponent implements OnInit {
       .register(vehicle)
       .pipe(
         tap(({ message }: VehicleResponse) =>
-          this.snackBar.open(message.message, 'ok', {
+          this.snackBar.open(message.message, 'Aceptar', {
             duration: 2000,
             panelClass: ['mat-toolbar', 'mat-primary'],
           })

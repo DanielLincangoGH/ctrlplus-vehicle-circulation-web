@@ -1,3 +1,4 @@
+import { Restriction } from './../../../circulation/interfaces/restriction';
 import { Vehicle } from './../../interfaces/vehicle';
 import { Component, Input, OnInit } from '@angular/core';
 
@@ -8,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class VehicleDetailComponent implements OnInit {
   @Input() vehicle!: Vehicle;
-  @Input() message!: string;
+  @Input() restriction!: Restriction;
 
   constructor() {}
 

@@ -1,11 +1,16 @@
 <h1 mat-dialog-title>Detalle</h1>
 <div mat-dialog-content>
-  <app-vehicle-detail
-    [vehicle]="data.vehicle"
-    [message]="data.restriction.message"
-  >
+  <app-vehicle-detail [vehicle]="data.vehicle" [restriction]="data.restriction">
   </app-vehicle-detail>
 </div>
 <div mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Ok</button>
+  <button
+    mat-button
+    color="primary"
+    class="full-width"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+  >
+    Cerrar
+  </button>
 </div>

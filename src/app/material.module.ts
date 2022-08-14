@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   exports: [
@@ -22,6 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     MatSnackBarModule,
     MatDialogModule,
+    MatGridListModule,
   ],
 })
 export class MaterialModule {}

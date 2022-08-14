@@ -1,24 +1,32 @@
-<mat-label>
-  {{ vehicle.plateId }}
-</mat-label>
-<mat-label>
-  {{ vehicle.brand }}
-</mat-label>
-<mat-label>
-  {{ vehicle.model }}
-</mat-label>
-<mat-label>
-  {{ vehicle.manufacturingYear }}
-</mat-label>
-<mat-label>
-  {{ vehicle.engine }}
-</mat-label>
-<mat-label>
-  {{ vehicle.chassis }}
-</mat-label>
-<mat-label>
-  {{ vehicle.color }}
-</mat-label>
-<mat-label *ngIf="message && message != ''">
-  {{ message }}
-</mat-label>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile class="detail-label">PLACA: </mat-grid-tile>
+  <mat-grid-tile>{{ vehicle.plateId }}</mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile class="detail-label">MARCA: </mat-grid-tile>
+  <mat-grid-tile>{{ vehicle.brand }}</mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile class="detail-label">MODELO: </mat-grid-tile>
+  <mat-grid-tile>{{ vehicle.model }}</mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile class="detail-label">AÑO: </mat-grid-tile>
+  <mat-grid-tile>{{ vehicle.manufacturingYear }}</mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile class="detail-label">MOTOR: </mat-grid-tile>
+  <mat-grid-tile>{{ vehicle.engine }}</mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile class="detail-label">CHASIS: </mat-grid-tile>
+  <mat-grid-tile>{{ vehicle.chassis }}</mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <mat-grid-tile class="detail-label">COLOR: </mat-grid-tile>
+  <mat-grid-tile>{{ vehicle.color }}</mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list cols="1" rowHeight="2:1">
+  <mat-grid-tile>{{ restriction.message }} </mat-grid-tile>
+</mat-grid-list>
