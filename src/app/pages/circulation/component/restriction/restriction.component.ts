@@ -2,7 +2,7 @@ import { RestrictionDetailComponent } from './../restriction-detail/restriction-
 import { Restriction } from './../../interfaces/restriction';
 import { tap } from 'rxjs';
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { RestrictionService } from './../../services/restriction.service';
 import { RestrictionResponse } from '../../interfaces/restriction.response';
 import {
@@ -18,12 +18,12 @@ import {
 })
 export class RestrictionComponent implements OnInit {
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private restrictionSrv: RestrictionService,
     public dialog: MatDialog
   ) {}
 
-  registrationForm: FormGroup = this.fb.group({
+  registrationForm: UntypedFormGroup = this.fb.group({
     plateId: ['', Validators.required],
     evaluationDate: ['', Validators.required],
   });

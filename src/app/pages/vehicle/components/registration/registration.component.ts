@@ -1,7 +1,7 @@
 import { VehicleResponse } from './../../interfaces/vehicle.response';
 import { VehicleService } from './../../services/vehicle.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Vehicle } from '../../interfaces/vehicle';
 import { tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -13,12 +13,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class RegistrationComponent implements OnInit {
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private vehicleSrv: VehicleService,
     private snackBar: MatSnackBar
   ) {}
 
-  registrationForm: FormGroup = this.fb.group({
+  registrationForm: UntypedFormGroup = this.fb.group({
     plateId: ['', Validators.required],
     color: ['', Validators.required],
     model: ['', Validators.required],
