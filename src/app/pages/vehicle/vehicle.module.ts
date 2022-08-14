@@ -6,16 +6,13 @@ import { CommonModule } from '@angular/common';
 import { VehicleRoutingModule } from './vehicle-routing.module';
 import { RegistrationComponent } from './components/registration/registration.component';
 
-
 @NgModule({
-  declarations: [
-    RegistrationComponent
-  ],
+  declarations: [RegistrationComponent],
   imports: [
     CommonModule,
     VehicleRoutingModule,
     ReactiveFormsModule,
-    MaterialModule
-  ]
+    MaterialModule,
+  ],
 })
-export class VehicleModule { }
+export class VehicleModule {}

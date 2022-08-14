@@ -30,6 +30,15 @@
       </mat-form-field>
 
       <mat-form-field class="full-width">
+        <mat-label>Año</mat-label>
+        <input
+          formControlName="manufacturingYear"
+          matInput
+          placeholder="Ej. 2022"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
         <mat-label>Motor</mat-label>
         <input
           formControlName="engine"
@@ -48,7 +57,13 @@
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" class="full-width">
+      <button
+        mat-raised-button
+        color="primary"
+        class="full-width"
+        type="submit"
+        [disabled]="registrationForm.invalid"
+      >
         Registrar
       </button>
     </mat-card-actions>

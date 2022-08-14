@@ -25,7 +25,7 @@ export class RegistrationComponent implements OnInit {
     brand: ['', Validators.required],
     engine: ['', Validators.required],
     chassis: ['', Validators.required],
-    manufacturingYear: ['', Validators.required],
+    manufacturingYear: [2022, Validators.required],
   });
 
   ngOnInit(): void {}
@@ -36,7 +36,10 @@ export class RegistrationComponent implements OnInit {
       .register(vehicle)
       .pipe(
         tap(({ message }: VehicleResponse) =>
-          this.snackBar.open(message.message)
+          this.snackBar.open(message.message, 'ok', {
+            duration: 2000,
+            panelClass: ['mat-toolbar', 'mat-primary'],
+          })
         )
       )
       .subscribe();
