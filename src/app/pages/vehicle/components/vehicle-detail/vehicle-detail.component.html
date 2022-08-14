@@ -28,5 +28,11 @@
 </mat-grid-list>
 
 <mat-grid-list cols="1" rowHeight="2:1">
-  <mat-grid-tile>{{ restriction.message }} </mat-grid-tile>
+  <mat-grid-tile
+    [ngClass]="{
+      'success-message': !restriction.hasRestriction,
+      'error-message': restriction.hasRestriction
+    }"
+    >{{ restriction.message }}
+  </mat-grid-tile>
 </mat-grid-list>
