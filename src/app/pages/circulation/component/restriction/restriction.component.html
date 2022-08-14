@@ -1,1 +1,41 @@
-<p>restriction works!</p>
+<form
+  [formGroup]="registrationForm"
+  (ngSubmit)="onEvaluateRestriction()"
+  class="form-container"
+>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Restricción vehícular</mat-card-title>
+      <mat-card-subtitle
+        >Validar permiso de circulación por último dígito de la
+        placa</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <mat-label>Placa</mat-label>
+        <input formControlName="plateId" matInput placeholder="Ej. PPP-001" />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <mat-label>Fecha y Hora</mat-label>
+        <input
+          formControlName="evaluationDate"
+          matInput
+          placeholder="Ej. 2022-14-08"
+        />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        class="full-width"
+        type="submit"
+        [disabled]="registrationForm.invalid"
+      >
+        Registrar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
