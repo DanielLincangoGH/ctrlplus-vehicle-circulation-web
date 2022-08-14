@@ -1,3 +1,5 @@
+import { AppInterceptor } from './shared/interceptor/app.interceptor';
+import { LoaderComponent } from './shared/component/loader/loader.component';
 import { LayerComponent } from './shared/component/layer/layer.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -8,9 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { HeaderComponent } from './shared/component/header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, LayerComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    LayerComponent,
+    LoaderComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
