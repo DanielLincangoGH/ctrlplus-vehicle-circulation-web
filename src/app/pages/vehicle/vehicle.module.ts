@@ -1,8 +1,10 @@
+import { MaterialModule } from './../../material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { VehicleRoutingModule } from './vehicle-routing.module';
-import { RegistrationComponent } from './registration/registration.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { RegistrationComponent } from './registration/registration.component';
   ],
   imports: [
     CommonModule,
-    VehicleRoutingModule
+    VehicleRoutingModule,
+    ReactiveFormsModule,
+    MaterialModule
   ]
 })
 export class VehicleModule { }

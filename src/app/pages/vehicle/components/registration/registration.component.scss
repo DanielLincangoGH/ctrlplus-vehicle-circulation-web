@@ -1,0 +1,20 @@
+.full-width {
+  width: 100%;
+}
+
+.top-padding {
+  padding-top: 3px;
+}
+
+.margin-left mat-radio-button:not(:first-child) {
+  margin-left: 10px;
+}
+
+.form-container {
+  position: absolute;
+  top: 200px;
+  left: calc(50% - 150px);
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 300px;
+}

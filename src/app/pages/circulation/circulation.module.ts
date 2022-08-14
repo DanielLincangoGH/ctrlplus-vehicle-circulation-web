@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { CirculationRoutingModule } from './circulation-routing.module';
-import { RestrictionComponent } from './restriction/restriction.component';
+import { RestrictionComponent } from './component/restriction/restriction.component';
 
 
 @NgModule({
