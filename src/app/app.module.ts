@@ -1,3 +1,4 @@
+import { PrimengModule } from './primeng.module';
 import { AppInterceptor } from './shared/interceptor/app.interceptor';
 import { LoaderComponent } from './shared/component/loader/loader.component';
 import { LayerComponent } from './shared/component/layer/layer.component';
@@ -27,6 +28,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    PrimengModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true },

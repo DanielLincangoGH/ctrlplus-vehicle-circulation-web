@@ -1,3 +1,4 @@
+import { PrimengModule } from './../../primeng.module';
 import { VehicleModule } from './../vehicle/vehicle.module';
 import { MaterialModule } from './../../material.module';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,7 @@ import { RestrictionDetailComponent } from './component/restriction-detail/restr
     MaterialModule,
     ReactiveFormsModule,
     VehicleModule,
+    PrimengModule,
   ],
 })
 export class CirculationModule {}

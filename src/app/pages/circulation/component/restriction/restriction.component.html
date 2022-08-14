@@ -16,15 +16,11 @@
         <mat-label>Placa</mat-label>
         <input formControlName="plateId" matInput placeholder="Ej. PPP-001" />
       </mat-form-field>
-
-      <mat-form-field class="full-width">
-        <mat-label>Fecha y Hora</mat-label>
-        <input
-          formControlName="evaluationDate"
-          matInput
-          placeholder="Ej. 2022-14-08"
-        />
-      </mat-form-field>
+      <p-calendar
+        placeholder="Fecha y hora"
+        formControlName="evaluationDate"
+        [showTime]="showTime"
+      ></p-calendar>
     </mat-card-content>
     <mat-card-actions>
       <button
@@ -39,4 +35,3 @@
     </mat-card-actions>
   </mat-card>
 </form>
-

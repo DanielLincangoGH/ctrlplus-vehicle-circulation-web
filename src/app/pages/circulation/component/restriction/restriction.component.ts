@@ -1,15 +1,15 @@
-import { RestrictionDetailComponent } from './../restriction-detail/restriction-detail.component';
-import { Restriction } from './../../interfaces/restriction';
-import { tap } from 'rxjs';
-import { Component, Inject, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { RestrictionService } from './../../services/restriction.service';
-import { RestrictionResponse } from '../../interfaces/restriction.response';
+import { Component, OnInit } from '@angular/core';
 import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+  UntypedFormBuilder,
+  UntypedFormGroup,
+  Validators,
+} from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { tap } from 'rxjs';
+import { RestrictionResponse } from '../../interfaces/restriction.response';
+import { RestrictionService } from './../../services/restriction.service';
+import { RestrictionDetailComponent } from './../restriction-detail/restriction-detail.component';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-restriction',
@@ -17,6 +17,9 @@ import {
   styleUrls: ['./restriction.component.scss'],
 })
 export class RestrictionComponent implements OnInit {
+  showTime = true;
+  hourFormat = 24;
+
   constructor(
     private fb: UntypedFormBuilder,
     private restrictionSrv: RestrictionService,
@@ -25,15 +28,17 @@ export class RestrictionComponent implements OnInit {
 
   registrationForm: UntypedFormGroup = this.fb.group({
     plateId: ['', Validators.required],
-    evaluationDate: ['', Validators.required],
+    evaluationDate: [new Date(), Validators.required],
   });
 
   ngOnInit(): void {}
 
   onEvaluateRestriction() {
     const { evaluationDate, plateId } = this.registrationForm.value;
+    const currentDate = evaluationDate as Date;
+    let formattedDate = moment(currentDate).format('yyyy-MM-DD HH:mm');
     this.restrictionSrv
-      .evaluateRestriction(plateId, evaluationDate)
+      .evaluateRestriction(plateId, formattedDate)
       .pipe(
         tap((restriction: RestrictionResponse) =>
           this.dialog.open(RestrictionDetailComponent, {
