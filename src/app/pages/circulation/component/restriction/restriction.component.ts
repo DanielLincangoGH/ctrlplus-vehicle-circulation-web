@@ -1,8 +1,15 @@
+import { RestrictionDetailComponent } from './../restriction-detail/restriction-detail.component';
+import { Restriction } from './../../interfaces/restriction';
 import { tap } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RestrictionService } from './../../services/restriction.service';
 import { RestrictionResponse } from '../../interfaces/restriction.response';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-restriction',
@@ -12,7 +19,8 @@ import { RestrictionResponse } from '../../interfaces/restriction.response';
 export class RestrictionComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
-    private restrictionSrv: RestrictionService
+    private restrictionSrv: RestrictionService,
+    public dialog: MatDialog
   ) {}
 
   registrationForm: FormGroup = this.fb.group({
@@ -26,7 +34,14 @@ export class RestrictionComponent implements OnInit {
     const { evaluationDate, plateId } = this.registrationForm.value;
     this.restrictionSrv
       .evaluateRestriction(plateId, evaluationDate)
-      .pipe(tap((estriction: RestrictionResponse) => console.log(estriction)))
+      .pipe(
+        tap((restriction: RestrictionResponse) =>
+          this.dialog.open(RestrictionDetailComponent, {
+            width: '300px',
+            data: restriction,
+          })
+        )
+      )
       .subscribe();
   }
 }
