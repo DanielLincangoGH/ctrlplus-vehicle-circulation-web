@@ -10,6 +10,7 @@ Required: [Docker instalation](https://docs.docker.com/engine/install/)
 Deploy services: [Circulation services](https://github.com/DanielLincangoGH/ctrlplus-vehicle-circulation/tree/master#readme)
 
 Run `sudo docker pull daniellincango/circulation-web-app:1.0.0` to pull web app image.
+
 Run `sudo docker run -d -p 8081:80 daniellincango/circulation-web-app:1.0.0` to deploy app.
 
 See the app running in: [Circulation web app - Development](http://localhost:8081)
