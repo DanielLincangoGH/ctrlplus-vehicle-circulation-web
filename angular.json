@@ -79,7 +79,8 @@
               "browserTarget": "ctrlplus-vehicle-circulation-web:build:production"
             },
             "development": {
-              "browserTarget": "ctrlplus-vehicle-circulation-web:build:development"
+              "browserTarget": "ctrlplus-vehicle-circulation-web:build:development",
+              "proxyConfig": "proxy.conf.dev.json"
             }
           },
           "defaultConfiguration": "development"
